@@ -1,0 +1,33 @@
+@use "variables" as *;
+
+// Mixin tablet size media query
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+// Mixin desktop size media query
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+// Common flex box settings
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+// Responsive padding for media queries
+@mixin responsive-padding($mobile-padding, $tablet-padding, $desktop-padding) {
+  padding: $mobile-padding;
+  @include tablet {
+    padding: $tablet-padding;
+  }
+  @include desktop {
+    padding: $desktop-padding;
+  }
+}

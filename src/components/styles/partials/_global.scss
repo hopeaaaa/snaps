@@ -1,0 +1,28 @@
+@use "variables" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  background-color: $primary-bg;
+  font-family: $font-family;
+}
+
+/* .btn {
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+
+font-size: 0.75rem;
+line-height: 0.9375rem;
+font-weight: 500; 
+
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+    font-weight: 500;
+
+*/

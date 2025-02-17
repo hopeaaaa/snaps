@@ -1,0 +1,107 @@
+@use "../styles/partials/mixins" as *;
+@use "../styles/partials/typography" as *;
+@use "../styles/partials/variables" as *;
+/* @use "../styles/partials/global" as *; */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: $primary-bg;
+}
+
+.footer {
+  margin: 8rem 0 0 2rem;
+
+  &__container {
+    display: flex;
+  }
+
+  &__title {
+    color: $primary-text;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    font-weight: 400;
+  }
+
+  &__sub {
+    display: flex;
+    gap: 8rem;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  &__subcontainer {
+    display: flex;
+    flex-direction: column;
+    border-width: 2px;
+    color: $primary-text;
+    font-family: $ff-outfit500;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+    font-weight: 500;
+    gap: 0.5rem;
+
+    &__content {
+      width: max-content;
+      margin-bottom: 2rem;
+    }
+  }
+  &.footer__subcontainer__socials {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    height: 2rem;
+    width: 5rem;
+    border: 2px solid red;
+  }
+
+  &__copyright {
+    display: flex;
+    gap: 2rem;
+    margin-top: 20rem;
+    color: $optional-text;
+    font-size: 1.25rem;
+    line-height: 1.625rem;
+    font-weight: 500;
+  }
+}
+
+/* 
+// Mobile styles
+@media (max-width: 767px) {
+  .header__nav {
+    .header__container {
+      padding: 1rem;
+    }
+
+    .header__fcontainer {
+      .header__fgrid {
+        padding: 0 1rem 1rem;
+      }
+    }
+  }
+}
+
+// Tablet styles
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header__container {
+    .header__fcontainer {
+      .header__fgrid {
+        max-width: 768px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+// Desktop styles
+@media (min-width: 1024px) {
+  .header__container {
+    .header__fcontainer {
+      .header__fgrid {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    }
+  }
+} */

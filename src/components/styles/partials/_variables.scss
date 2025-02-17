@@ -1,0 +1,23 @@
+@use "typography" as *;
+
+// Breakpoint Values
+$desktop: 1280px;
+$tablet: 867px;
+
+// Colors
+$primary-text: #0c1e1a;
+$primary-accent: #1e6655;
+$primary-bg: #effaf7;
+$border: #b7cec9;
+$optional-text: #b7cec9;
+$alternate-bg: #e4efec;
+$alternate-text: #ffffff;
+$input-bg: #ffffff;
+$tag-bg: #ffffff;
+
+//Fonts
+$ff-newsreadern: "Newsreader", serif;
+$ff-newsreaderi: "Newsreader", serif;
+$ff-newsreader400: "Newsreader", serif;
+$ff-outfit500: "Outfit", sans serif;
+$ff-outfit400: "Outfit", sans serif;

@@ -1,0 +1,64 @@
+@use "../styles/partials/mixins" as *;
+@use "../styles/partials/typography" as *;
+@use "../styles/partials/variables" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.hero {
+  margin: 2rem 2rem;
+
+  &__title {
+    color: $primary-text;
+    margin-bottom: 1rem;
+
+    @media (max-width: 767px) {
+      font-family: $ff-outfit400;
+      font-size: 1.125rem;
+      line-height: 1.4375rem;
+      font-weight: 300;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      font-family: $ff-outfit400;
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1.875rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-family: $ff-outfit400;
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1.875rem;
+    }
+  }
+
+  &__content {
+    color: $primary-text;
+    font-size: 3.25rem;
+    line-height: 4.125rem;
+    font-family: $ff-newsreadern;
+    font-weight: 300;
+
+    @media (max-width: 767px) {
+      font-size: 1.625rem;
+      line-height: 38px;
+      width: 300px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      font-size: 3.25rem;
+      line-height: 4.125rem;
+      width: 900px;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 3.25rem;
+      line-height: 4.125rem;
+      width: 730px;
+    }
+  }
+}

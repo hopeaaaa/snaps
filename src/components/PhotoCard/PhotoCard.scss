@@ -1,0 +1,101 @@
+@use "../styles/partials/mixins" as *;
+@use "../styles/partials/typography" as *;
+@use "../styles/partials/variables" as *;
+
+/* .photo__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+
+  @media (max-width: 767px) {
+    max-width: 767px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    max-width: calc(48% - 1rem);
+  }
+  @media (min-width: 1024px) {
+    max-width: calc(33.33% - 1rem);
+  }
+} */
+
+.photo__card {
+  position: relative;
+  height: auto;
+  width: 100%;
+  border-radius: 12px;
+  border: solid;
+  border-color: $border;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 2rem;
+  padding: 0;
+
+  @media (max-width: 767px) {
+    max-width: 767px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    max-width: calc(48% - 1rem);
+  }
+  @media (min-width: 1024px) {
+    max-width: calc(33.33% - 1rem);
+  }
+
+  .photo__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .photo__info {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0px;
+
+    .photo__photographer {
+      color: $primary-text;
+      background-color: $alternate-bg;
+      font-size: 0.875rem;
+      line-height: 1.0938rem;
+      font-weight: 500;
+      font-family: $ff-outfit500;
+      padding: 1rem;
+      border-top-left-radius: 20px;
+      width: 150px;
+      position: relative;
+      left: 400px;
+    }
+
+    .photo__tag {
+      display: flex;
+      gap: 8px;
+      padding: 20px;
+      flex-wrap: wrap;
+      background-color: $alternate-bg;
+
+      .photo__btn {
+        background: $input-bg;
+        border-color: $primary-accent;
+        border: solid;
+        border-color: $border;
+        border-width: 2px;
+        border-radius: 12px;
+        padding: 6px 12px;
+        font-size: 0.875rem;
+        line-height: 1.0938rem;
+        font-weight: 500;
+        font-family: $ff-outfit500;
+        color: $primary-text;
+        /*  cursor: pointer;
+        transition: all 0.2s ease; */
+
+        /* &:hover {
+          background: $primary-accent;
+        } */
+      }
+    }
+  }
+}
