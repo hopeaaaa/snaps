@@ -46,27 +46,33 @@
     height: 100%;
     object-fit: contain;
     display: block;
+    z-index: 1;
+    position: relative;
   }
 
   .photo__info {
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 0px;
+    z-index: 2;
+    background-color: transparent;
 
     .photo__photographer {
       color: $primary-text;
-      background-color: $alternate-bg;
       font-size: 0.875rem;
       line-height: 1.0938rem;
       font-weight: 500;
       font-family: $ff-outfit500;
+      z-index: 3;
+      display: flex;
+      justify-content: end;
+      background-color: $alternate-bg;
       padding: 1rem;
-      border-top-left-radius: 20px;
-      width: 150px;
-      position: relative;
-      left: 400px;
+      border-top-left-radius: 12px;
+      width: fit-content;
+      margin-left: auto;
     }
 
     .photo__tag {
@@ -75,6 +81,7 @@
       padding: 20px;
       flex-wrap: wrap;
       background-color: $alternate-bg;
+      width: 100%;
 
       .photo__btn {
         background: $input-bg;
