@@ -10,98 +10,82 @@
 }
 
 .footer {
-  margin: 8rem 0 0 2rem;
+  margin: 2rem;
 
+  //everything except copyright
   &__container {
     display: flex;
+
+    @media (min-width: 768px) {
+      /*     flex-flow: row wrap; */
+    }
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
   }
 
   &__title {
+    font-family: $ff-newsreadern;
     color: $primary-text;
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-    font-weight: 400;
+    margin-bottom: 4rem;
+    /*     border: 2px solid red; */
+
+    @media (max-width: 767px) {
+      /* width: 100%; */
+      font-size: 2rem;
+      line-height: 2rem;
+      font-weight: 400;
+    }
+    @media (min-width: 768px) {
+      /* width: 100%; */
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      font-weight: 400;
+    }
   }
 
+  //photographers, about, socials
   &__sub {
     display: flex;
     gap: 8rem;
     justify-content: flex-end;
+    padding: 0 2rem 0 2rem;
     margin-left: auto;
   }
 
+  //photographers, about
   &__subcontainer {
-    display: flex;
-    flex-direction: column;
-    border-width: 2px;
+    margin-bottom: 2rem;
+
+    /*  display: flex;
+    justify-content: space-between; */
+  }
+
+  &__content {
     color: $primary-text;
     font-family: $ff-outfit500;
     font-size: 1.25rem;
     line-height: 1.625rem;
     font-weight: 500;
-    gap: 0.5rem;
-
-    &__content {
-      width: max-content;
-      margin-bottom: 2rem;
-    }
+    margin: 0.5rem;
   }
-  &.footer__subcontainer__socials {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    height: 2rem;
-    width: 5rem;
-    border: 2px solid red;
+
+  &__socials {
+    padding: 0 0 0 2rem;
+
+    padding-left: 0;
+  }
+  &__icon {
+    margin: 0.5rem;
   }
 
   &__copyright {
     display: flex;
     gap: 2rem;
-    margin-top: 20rem;
     color: $optional-text;
     font-size: 1.25rem;
     line-height: 1.625rem;
     font-weight: 500;
+    margin-top: 6rem;
   }
 }
-
-/* 
-// Mobile styles
-@media (max-width: 767px) {
-  .header__nav {
-    .header__container {
-      padding: 1rem;
-    }
-
-    .header__fcontainer {
-      .header__fgrid {
-        padding: 0 1rem 1rem;
-      }
-    }
-  }
-}
-
-// Tablet styles
-@media (min-width: 768px) and (max-width: 1023px) {
-  .header__container {
-    .header__fcontainer {
-      .header__fgrid {
-        max-width: 768px;
-        margin: 0 auto;
-      }
-    }
-  }
-}
-
-// Desktop styles
-@media (min-width: 1024px) {
-  .header__container {
-    .header__fcontainer {
-      .header__fgrid {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-    }
-  }
-} */

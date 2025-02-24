@@ -1,34 +1,20 @@
 import "./App.scss";
-import HeroSection from "./components/HeroSection/Hero.jsx";
-import Header from "./components/Header/Header.jsx";
-import PhotoGallery from "./components/PhotoGallery/PhotoGallery.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage.jsx";
+import SinglePhotoPage from "./pages/SinglePhotoPage/SinglePhotoPage.jsx";
+import NotFound from "./pages/NotFoundPage/NotFoundPage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
-import { useState } from "react";
 
 function App() {
-  const [activeFilter, setActiveFilter] = useState("");
-
-  //ELMO, if in photogallery
-
-  const handleFilterChange = (filter) => {
-    /* console.log(filter); */
-    setActiveFilter(filter);
-
-    if (activeFilter === filter) {
-      setActiveFilter("");
-    }
-  };
-
   return (
-    <main>
-      <Header
-        handleFilterChange={handleFilterChange}
-        activeFilter={activeFilter}
-      />
-      <HeroSection />
-      <PhotoGallery activeFilter={activeFilter} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="photopage/:photoId" element={<SinglePhotoPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Footer />
-    </main>
+    </BrowserRouter>
   );
 }
 

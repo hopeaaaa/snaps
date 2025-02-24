@@ -22,23 +22,26 @@
 .photo__card {
   position: relative;
   height: auto;
-  width: 100%;
   border-radius: 12px;
   border: solid;
   border-color: $border;
   box-sizing: border-box;
   overflow: hidden;
-  margin: 2rem;
   padding: 0;
+  margin: 1rem;
+  // display: flex;
+  //flex-wrap: wrap;
+  //gap: 2rem;
+  //width: 33%;
 
   @media (max-width: 767px) {
-    max-width: 767px;
+    width: 100%;
   }
   @media (min-width: 768px) and (max-width: 1023px) {
-    max-width: calc(48% - 1rem);
+    width: calc(48% - 1rem);
   }
   @media (min-width: 1024px) {
-    max-width: calc(33.33% - 1rem);
+    width: calc(33.33% - 2rem);
   }
 
   .photo__img {

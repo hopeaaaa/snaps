@@ -1,15 +1,18 @@
 import filters from "../../data/tags.json";
 import Icon from "../../assets/icons/Filter.svg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../Header/Header.scss";
 
 const Header = (props) => {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
 
   return (
-    <nav className="header">
-      <div className="header__container">
-        <h1 className="header__title">Snaps</h1>
+    <header className="header">
+      <nav className="header__container">
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <h1 className="header__title">Snaps</h1>
+        </Link>
         <div className="header__btncontainer">
           <button
             className={`header__filtersbtn ${
@@ -23,8 +26,7 @@ const Header = (props) => {
             </span>
           </button>
         </div>
-      </div>
-
+      </nav>
       <div className={`header__fcontainer ${isFiltersOpen ? "open" : ""}`}>
         <h2 className="header__ftitle">Filters</h2>
         <div className="header__fgrid">
@@ -41,7 +43,7 @@ const Header = (props) => {
           ))}
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 
