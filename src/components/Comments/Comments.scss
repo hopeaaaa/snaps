@@ -23,32 +23,21 @@ textarea[type="text"]:focus {
 
 //comment form
 .comments {
-  &__section {
-    /* border: solid 2px blue; */
-    /* margin: 2rem; */
-  }
-
   &__formcontainer {
-    margin: 0 auto;
-    padding: 0;
-
-    @media (max-width: 767px) {
-      width: 100%;
-      margin: 0 2rem;
-    }
-    @media (min-width: 768px) and (max-width: 1023px) {
-      width: 100%;
-      margin: auto;
-    }
-    @media (min-width: 1024px) {
-      width: 60%;
-      margin: auto;
-    }
+    margin: 4rem 0;
+    display: flex;
+    justify-content: center;
   }
 
   &__form {
-    padding: 4rem 0 1rem 0;
-    /*  border: solid 2px red; */
+    /*  border: solid 2px black; */
+    @media (max-width: 1023px) {
+      width: 100%;
+      margin: 0 2rem;
+    }
+    @media (min-width: 1024px) {
+      width: 60%;
+    }
   }
 
   &__authorTitle {
@@ -112,6 +101,7 @@ textarea[type="text"]:focus {
     cursor: pointer;
     transition: all 0.2s ease;
     float: right;
+    margin: 1rem 0 2rem 0;
 
     @media (min-width: 768px) {
       font-size: 1.25rem;
@@ -144,19 +134,20 @@ textarea[type="text"]:focus {
 
 .submittedComments {
   &__container {
-    width: max-content;
-    margin: 4rem auto;
-    /* border: 2px solid green; */
-    line-height: 1.0938rem;
-    font-weight: 500;
-    font-family: $ff-outfit500;
-    color: $primary-text;
+    /*  border: 2px solid green; */
+    margin: 0 auto;
+    margin-bottom: 8rem;
+
+    @media (max-width: 1023px) {
+      margin: 0 2rem;
+    }
+    @media (min-width: 1024px) {
+      width: 60%;
+    }
   }
 
   &__title {
-    margin: 1rem 0 0.5rem 0; //trbl
-    border-bottom: solid 0.1rem $border;
-    width: 6.25rem;
+    margin: 2rem 0 1rem 0; //trbl
 
     @media (min-width: 768px) {
       font-size: 1.25rem;
@@ -174,15 +165,88 @@ textarea[type="text"]:focus {
     }
   }
 
-  &__comments {
-    line-height: 1.0938rem;
-    font-weight: 500;
-    font-family: $ff-outfit500;
-    color: $primary-text;
+  &__titleDivider {
+    width: 100%;
+    border: none;
+    border-top: 2px solid $border;
+    margin: 1rem 0;
   }
 
-  .submittedComment {
-    padding: 1rem 0;
-    border-bottom: 1px solid $border;
+  //author, date, text, line
+  &__comment {
+    /*  border: 2px solid blue; */
+  }
+
+  //date and author
+  &__subcontainer {
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  &__comment-author {
+    color: $primary-accent;
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+      line-height: 1.625rem;
+      font-weight: 500;
+      font-family: $ff-outfit500;
+      border-radius: 12px;
+    }
+    @media (max-width: 767px) {
+      font-size: 0.75rem;
+      line-height: 0.9375rem;
+      font-weight: 500;
+      font-family: $ff-outfit500;
+      border-radius: 8px;
+    }
+  }
+
+  &__comment-text {
+    /*  border: 2px solid red; */
+    color: $primary-text;
+    margin-bottom: 1rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+      line-height: 1.625rem;
+      font-weight: 500;
+      font-family: $ff-outfit500;
+      border-radius: 12px;
+    }
+    @media (max-width: 767px) {
+      font-size: 0.75rem;
+      line-height: 0.9375rem;
+      font-weight: 500;
+      font-family: $ff-outfit500;
+      border-radius: 8px;
+    }
+  }
+
+  &__comment-date {
+    color: $primary-accent;
+    float: right;
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+      line-height: 1.625rem;
+      font-weight: 500;
+      font-family: $ff-outfit500;
+      border-radius: 12px;
+    }
+    @media (max-width: 767px) {
+      font-size: 0.75rem;
+      line-height: 0.9375rem;
+      font-weight: 500;
+      font-family: $ff-outfit500;
+      border-radius: 8px;
+    }
+  }
+
+  &__divider {
+    width: 100%;
+    border: none;
+    border-top: 2px solid $border;
+    margin: 1rem 0 1rem 0; //tlbr
   }
 }

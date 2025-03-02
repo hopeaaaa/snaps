@@ -6,9 +6,9 @@ function Comments({ photoId }) {
   const [author, setAuthor] = useState("");
   const [comment, setComment] = useState(""); //posting comments
   const [comments, setComments] = useState([]); //posted comments
-  const apiKey = "d1570477-4fa1-4479-83a7-a2a825650b15";
-  const URL = "https://unit-3-project-c5faaab51857.herokuapp.com";
+  const URL = "http://localhost:3000/photos";
 
+  //buttons
   const handleAuthorName = (event) => {
     setAuthor(event.target.value);
   };
@@ -16,35 +16,26 @@ function Comments({ photoId }) {
     setComment(event.target.value);
   };
 
+  //display intitial comments
   const getComments = async () => {
-    /* console.log("getComments"); */
+    console.log("getComments");
     try {
-      const responseComments = await axios.get(
-        `${URL}/photos/${photoId}/comments?api_key=${apiKey}`
-      );
+      const responseComments = await axios.get(`${URL}/${photoId}/comments`);
       console.log(responseComments.data);
+      responseComments.data.sort((a, b) => {
+        return b.timestamp - a.timestamp;
+      });
       setComments(responseComments.data);
     } catch (error) {}
   };
 
   useEffect(() => {
+    if (!photoId) return;
     getComments();
   }, [photoId]);
 
-  async function postComment(newComment) {
-    console.log("submitted comment:");
-    try {
-      await axios.post(
-        `${URL}/photos/${photoId}/comments?api_key=${apiKey}`,
-        newComment
-      );
-      getComments(); // Refresh comments after posting
-    } catch (error) {
-      console.log("Error posting comment:", error, error.stack);
-    }
-  }
-
-  function handleCommentSubmit(event) {
+  //submitted comments
+  async function handleCommentSubmit(event) {
     event.preventDefault();
 
     const isFormValid = author.length > 0 && comment.length > 0;
@@ -52,20 +43,20 @@ function Comments({ photoId }) {
       alert("please fill out form");
       return;
     }
+
     const newComment = { name: author, comment: comment };
-    postComment(newComment);
-    setAuthor(""); // Clear form after submission
-    setComment("");
-    getComments();
+
+    try {
+      await axios.post(`${URL}/${photoId}/comments`, newComment);
+      console.log("new comment");
+      console.log(newComment);
+      await getComments(); // Refresh comments after posting
+      setAuthor(""); // Clear form after submission
+      setComment("");
+    } catch (error) {
+      console.log("Error posting comment:", error, error.stack);
+    }
   }
-
-  /*   const filteredComments = photoId.Filter
-    ? photoId.filter((photo) => photo.tags.includes(photoId.activeFilter))
-    : photoId; */
-
-  const filteredComments = comments.filter((comment) =>
-    comment.tags.includes(props.activeFilter)
-  );
 
   return (
     <section className="comments__section">
@@ -99,15 +90,35 @@ function Comments({ photoId }) {
         </form>
       </div>
       <div className="submittedComments__container">
-        <div className="submittedComment__title">
+        <div className="submittedComments__title">
           {comments.length} Comments
         </div>
-        <div className="submittedComment__comments">
-          {filteredComments.map((comment, index) => (
-            <div key={index}>
-              <strong>{comment.name}</strong>: {comment.comment}
-            </div>
-          ))}
+        <hr className="submittedComments__titleDivider" />
+        <div className="submittedComments__comments">
+          {comments.map((comment, index) => {
+            const formattedDate = new Date(
+              comment.timestamp
+            ).toLocaleDateString();
+
+            return (
+              <div className="submittedComments__comment" key={index}>
+                <div className="submittedComments__subcontainer">
+                  <span className="submittedComments__comment-author">
+                    {comment.name}
+                  </span>
+                  <span className="submittedComments__comment-date">
+                    {formattedDate}
+                  </span>
+                </div>
+                <span className="submittedComments__comment-text">
+                  {comment.comment}
+                </span>
+                {index !== comments.length - 1 && (
+                  <hr className="submittedComments__divider" />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

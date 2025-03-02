@@ -20,12 +20,12 @@ function Footer() {
             <p className="footer__content">Careers</p>
             <p className="footer__content">Support</p>
           </div>
-        </div>
-        <div className="footer__socials">
-          <img src={facebookIcon} alt="facebook" className="footer__icon" />
-          <img src={xIcon} alt="x" className="footer__icon" />
-          <img src={instagramIcon} alt="instagram" className="footer__icon" />
-          <img src={pinterestIcon} alt="pinterest" className="footer__icon" />
+          <div className="footer__socials">
+            <img src={facebookIcon} alt="facebook" className="footer__icon" />
+            <img src={xIcon} alt="x" className="footer__icon" />
+            <img src={instagramIcon} alt="instagram" className="footer__icon" />
+            <img src={pinterestIcon} alt="pinterest" className="footer__icon" />
+          </div>
         </div>
       </div>
       <div className="footer__copyright">

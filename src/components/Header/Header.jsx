@@ -1,11 +1,24 @@
-import filters from "../../data/tags.json";
+/* import filters from "../../data/tags.json"; */
 import Icon from "../../assets/icons/Filter.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../Header/Header.scss";
+import axios from "axios";
 
 const Header = (props) => {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [filters, setFilters] = useState([]);
+
+  async function getTags() {
+    const response = await axios.get("http://localhost:3000/tags");
+    console.log("header response:", response.data);
+    setFilters(response.data);
+    console.log(filters);
+  }
+
+  useEffect(() => {
+    getTags();
+  }, []);
 
   return (
     <header className="header">

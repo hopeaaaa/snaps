@@ -7,15 +7,12 @@ import like_Outline from "../../assets/icons/like_Outline.svg";
 function SinglePhotoCard() {
   const [photo, setPhoto] = useState(null);
   const { photoId } = useParams();
-  const apiKey = "d1570477-4fa1-4479-83a7-a2a825650b15";
-  const URL = "https://unit-3-project-c5faaab51857.herokuapp.com";
+  const URL = "http://localhost:3000/photos";
 
   useEffect(() => {
     const loadPhoto = async () => {
       try {
-        const response = await axios.get(
-          `${URL}/photos/${photoId}?api_key=${apiKey}`
-        );
+        const response = await axios.get(`${URL}/${photoId}`);
         setPhoto(response.data);
       } catch (error) {
         console.log("Error fetching the photo:", error);
@@ -75,49 +72,3 @@ function SinglePhotoCard() {
 }
 
 export default SinglePhotoCard;
-
-/* const [photo, setPhoto] = useState(null);
-  const [comments, setComments] = useState([]);
-  const { photoId } = useParams();
-  const apiKey = "d1570477-4fa1-4479-83a7-a2a825650b15";
-  const URL = "https://unit-3-project-c5faaab51857.herokuapp.com";
-
-  useEffect(() => {
-    //console.log("photoId:", photoId);
-    const loadPhoto = async () => {
-      try {
-        const response = await axios.get(
-          `${URL}/photos/${photoId}?api_key=${apiKey}`
-        );
-        setPhoto(response.data);
-
-        const responseComments = await axios.get(
-          `${URL}/photos/${photoId}/comments?api_key=${apiKey}`
-        );
-        setComments(responseComments.data);
-      } catch (error) {
-        console.log("Error fetching the photo:", error);
-      }
-    };
-
-    if (photoId) {
-      loadPhoto();
-    }
-  }, [photoId]);
-
-  if (!photo) {
-    return <p>Oh snap! Still loading...</p>;
-  }
-
-  const handleSubmit = () => {
-    if (!author || !comment) return;
-
-    axios
-      .post(`${URL}/${photoId}/comments`, { author, comment })
-
-      .then((response) => {
-        setComments([]), setName("");
-        setComment("");
-      })
-      .catch((error) => console.error("Error, try again", error));
-  }; */

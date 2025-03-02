@@ -5,8 +5,7 @@ import "../PhotoGallery/PhotoGallery.scss";
 import { useEffect, useState } from "react";
 
 function PhotoGallery(props) {
-  const apiKey = "d1570477-4fa1-4479-83a7-a2a825650b15";
-  const URL = "https://unit-3-project-c5faaab51857.herokuapp.com";
+  const URL = "http://localhost:3000/photos";
 
   //setting useState to [] bc its what we expect the data to return as
   const [photosData, setPhotosData] = useState([]);
@@ -16,7 +15,7 @@ function PhotoGallery(props) {
 
   async function getAllPhotos() {
     try {
-      const response = await axios.get(`${URL}/photos?api_key=${apiKey}`);
+      const response = await axios.get(`${URL}`);
       setPhotosData(response.data);
     } catch (error) {}
   }
