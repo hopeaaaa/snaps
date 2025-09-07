@@ -5,7 +5,7 @@ import "../PhotoGallery/PhotoGallery.scss";
 import { useEffect, useState } from "react";
 
 function PhotoGallery(props) {
-  const URL = "http://localhost:3000/photos";
+  const URL = `${process.env.REACT_APP_API_URL}`;
 
   //setting useState to [] bc its what we expect the data to return as
   const [photosData, setPhotosData] = useState([]);

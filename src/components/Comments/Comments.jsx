@@ -6,7 +6,7 @@ function Comments({ photoId }) {
   const [author, setAuthor] = useState("");
   const [comment, setComment] = useState(""); //posting comments
   const [comments, setComments] = useState([]); //posted comments
-  const URL = "http://localhost:3000/photos";
+  const URL = `${process.env.REACT_APP_API_URL}`;
 
   //buttons
   const handleAuthorName = (event) => {
@@ -17,6 +17,9 @@ function Comments({ photoId }) {
   };
 
   //display intitial comments
+
+  //await axios.get(`${URL}/photos/${photoId}/comments`);
+
   const getComments = async () => {
     console.log("getComments");
     try {

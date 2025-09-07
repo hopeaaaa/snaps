@@ -7,7 +7,7 @@ import like_Outline from "../../assets/icons/like_Outline.svg";
 function SinglePhotoCard() {
   const [photo, setPhoto] = useState(null);
   const { photoId } = useParams();
-  const URL = "http://localhost:3000/photos";
+  const URL = `${process.env.REACT_APP_API_URL}`;
 
   useEffect(() => {
     const loadPhoto = async () => {

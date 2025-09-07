@@ -8,12 +8,16 @@ import axios from "axios";
 const Header = (props) => {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [filters, setFilters] = useState([]);
+  const URL = `${process.env.REACT_APP_API_URL}`;
 
   async function getTags() {
-    const response = await axios.get("http://localhost:3000/tags");
-    console.log("header response:", response.data);
-    setFilters(response.data);
-    console.log(filters);
+    try {
+      const response = await axios.get(`${URL}/tags`);
+      console.log("header response:", response.data);
+      setFilters(response.data);
+    } catch (error) {
+      console.error("Error fetching tags:", error);
+    }
   }
 
   useEffect(() => {
